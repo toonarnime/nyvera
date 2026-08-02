@@ -1,1 +1,716 @@
 index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NYVERA — Where Imagination Takes Form</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background: #03030b;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* Main sky */
+#sky {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 75% 20%,
+      #3b246d 0%,
+      #171634 35%,
+      #05050e 75%
+    );
+}
+
+/* Stars */
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+
+  background: white;
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 5px white,
+    0 0 12px #9aa8ff;
+
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.2;
+    transform: scale(0.6);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* Glowing comet */
+#comet {
+  position: absolute;
+
+  width: 14px;
+  height: 14px;
+
+  top: -5%;
+  left: 75%;
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow:
+    0 0 12px white,
+    0 0 30px #76a7ff,
+    0 0 70px #9b6cff;
+
+  animation:
+    cometFly 7s linear infinite;
+}
+
+/* Comet trail */
+#comet::before {
+  content: "";
+
+  position: absolute;
+
+  width: 520px;
+  height: 6px;
+
+  right: 5px;
+  top: 4px;
+
+  transform-origin: right center;
+
+  background:
+    linear-gradient(
+      to left,
+      rgba(255,255,255,0.95),
+      rgba(115,150,255,0.7),
+      rgba(174,90,255,0.35),
+      transparent
+    );
+
+  filter: blur(3px);
+}
+
+/* Star comes from above */
+@keyframes cometFly {
+
+  0% {
+    transform:
+      translate(0, -100px)
+      rotate(28deg);
+
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  82% {
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translate(-110vw, 115vh)
+      rotate(28deg);
+
+    opacity: 0;
+  }
+}
+
+/* Center content */
+#content {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 100%;
+
+  text-align: center;
+
+  transform:
+    translate(-50%, -50%);
+
+  animation:
+    reveal 2.2s ease;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -40%);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%);
+  }
+}
+
+h1 {
+  font-size:
+    clamp(55px, 15vw, 150px);
+
+  letter-spacing: 14px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff,
+      #a7b8ff,
+      #d69cff,
+      #ffffff
+    );
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+
+  text-shadow:
+    0 0 35px
+    rgba(150,120,255,0.5);
+}
+
+p {
+  margin-top: 15px;
+
+  color: #d7d5ff;
+
+  font-size:
+    clamp(14px, 4vw, 22px);
+
+  letter-spacing: 4px;
+}
+
+/* Explore button */
+a {
+  text-decoration: none;
+}
+
+button {
+  margin-top: 38px;
+
+  padding:
+    16px 32px;
+
+  border: 1px solid
+    rgba(255,255,255,0.35);
+
+  border-radius: 50px;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  letter-spacing: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #5b5cff,
+      #a04cff
+    );
+
+  box-shadow:
+    0 0 30px
+    rgba(130,90,255,0.65);
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+button:hover {
+  transform:
+    scale(1.1);
+
+  box-shadow:
+    0 0 55px
+    #b18cff;
+}
+
+/* Bottom quote */
+#quote {
+  position: absolute;
+
+  bottom: 28px;
+
+  width: 100%;
+
+  text-align: center;
+
+  color: #aaa7d5;
+
+  font-size: 14px;
+
+  font-style: italic;
+
+  letter-spacing: 1px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="sky">
+
+  <!-- Shooting star -->
+  <div id="comet"></div>
+
+  <!-- Main title -->
+  <div id="content">
+
+    <h1>NYVERA</h1>
+
+    <p>
+      WHERE IMAGINATION TAKES FORM
+    </p>
+
+    <a href="world.html">
+
+      <button>
+        EXPLORE CREATIONS ✦
+      </button>
+
+    </a>
+
+  </div>
+
+  <div id="quote">
+    “Every creation begins somewhere beyond the stars.”
+  </div>
+
+</div>
+
+<script>
+
+/* Create stars */
+
+const sky =
+document.getElementById("sky");
+
+for (
+  let i = 0;
+  i < 170;
+  i++<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NYVERA — Where Imagination Takes Form</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background: #03030b;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* Main sky */
+#sky {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 75% 20%,
+      #3b246d 0%,
+      #171634 35%,
+      #05050e 75%
+    );
+}
+
+/* Stars */
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+
+  background: white;
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 5px white,
+    0 0 12px #9aa8ff;
+
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.2;
+    transform: scale(0.6);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* Glowing comet */
+#comet {
+  position: absolute;
+
+  width: 14px;
+  height: 14px;
+
+  top: -5%;
+  left: 75%;
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow:
+    0 0 12px white,
+    0 0 30px #76a7ff,
+    0 0 70px #9b6cff;
+
+  animation:
+    cometFly 7s linear infinite;
+}
+
+/* Comet trail */
+#comet::before {
+  content: "";
+
+  position: absolute;
+
+  width: 520px;
+  height: 6px;
+
+  right: 5px;
+  top: 4px;
+
+  transform-origin: right center;
+
+  background:
+    linear-gradient(
+      to left,
+      rgba(255,255,255,0.95),
+      rgba(115,150,255,0.7),
+      rgba(174,90,255,0.35),
+      transparent
+    );
+
+  filter: blur(3px);
+}
+
+/* Star comes from above */
+@keyframes cometFly {
+
+  0% {
+    transform:
+      translate(0, -100px)
+      rotate(28deg);
+
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  82% {
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translate(-110vw, 115vh)
+      rotate(28deg);
+
+    opacity: 0;
+  }
+}
+
+/* Center content */
+#content {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 100%;
+
+  text-align: center;
+
+  transform:
+    translate(-50%, -50%);
+
+  animation:
+    reveal 2.2s ease;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -40%);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%);
+  }
+}
+
+h1 {
+  font-size:
+    clamp(55px, 15vw, 150px);
+
+  letter-spacing: 14px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff,
+      #a7b8ff,
+      #d69cff,
+      #ffffff
+    );
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+
+  text-shadow:
+    0 0 35px
+    rgba(150,120,255,0.5);
+}
+
+p {
+  margin-top: 15px;
+
+  color: #d7d5ff;
+
+  font-size:
+    clamp(14px, 4vw, 22px);
+
+  letter-spacing: 4px;
+}
+
+/* Explore button */
+a {
+  text-decoration: none;
+}
+
+button {
+  margin-top: 38px;
+
+  padding:
+    16px 32px;
+
+  border: 1px solid
+    rgba(255,255,255,0.35);
+
+  border-radius: 50px;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  letter-spacing: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #5b5cff,
+      #a04cff
+    );
+
+  box-shadow:
+    0 0 30px
+    rgba(130,90,255,0.65);
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+button:hover {
+  transform:
+    scale(1.1);
+
+  box-shadow:
+    0 0 55px
+    #b18cff;
+}
+
+/* Bottom quote */
+#quote {
+  position: absolute;
+
+  bottom: 28px;
+
+  width: 100%;
+
+  text-align: center;
+
+  color: #aaa7d5;
+
+  font-size: 14px;
+
+  font-style: italic;
+
+  letter-spacing: 1px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="sky">
+
+  <!-- Shooting star -->
+  <div id="comet"></div>
+
+  <!-- Main title -->
+  <div id="content">
+
+    <h1>NYVERA</h1>
+
+    <p>
+      WHERE IMAGINATION TAKES FORM
+    </p>
+
+    <a href="world.html">
+
+      <button>
+        EXPLORE CREATIONS ✦
+      </button>
+
+    </a>
+
+  </div>
+
+  <div id="quote">
+    “Every creation begins somewhere beyond the stars.”
+  </div>
+
+</div>
+
+<script>
+
+/* Create stars */
+
+const sky =
+document.getElementById("sky");
+
+for (
+  let i = 0;
+  i < 170;
+  i++
+) {
+
+  const star =
+  document.createElement("div");
+
+  star.className =
+  "star";
+
+  star.style.left =
+  Math.random() * 100
+  + "%";
+
+  star.style.top =
+  Math.random() * 100
+  + "%";
+
+  star.style.animationDelay =
+  Math.random() * 3
+  + "s";
+
+  star.style.animationDuration =
+  1.5 + Math.random() * 3
+  + "s";
+
+  sky.appendChild(star);
+
+}
+
+</script>
+
+</body>
+</html>
+) {
+
+  const star =
+  document.createElement("div");
+
+  star.className =
+  "star";
+
+  star.style.left =
+  Math.random() * 100
+  + "%";
+
+  star.style.top =
+  Math.random() * 100
+  + "%";
+
+  star.style.animationDelay =
+  Math.random() * 3
+  + "s";
+
+  star.style.animationDuration =
+  1.5 + Math.random() * 3
+  + "s";
+
+  sky.appendChild(star);
+
+}
+
+</script>
+
+</body>
+</html>
