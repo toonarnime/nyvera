@@ -1,1 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Join NYVERA</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+
+  font-family:Arial,sans-serif;
+  color:white;
+  overflow:hidden;
+
+  background:
+  radial-gradient(
+    circle at 20% 15%,
+    #512b79,
+    transparent 40%
+  ),
+  radial-gradient(
+    circle at 80% 80%,
+    #1d4b78,
+    transparent 45%
+  ),
+  #070511;
+}
+
+.star{
+  position:fixed;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:white;
+
+  box-shadow:
+  0 0 8px white,
+  0 0 15px #a98cff;
+
+  pointer-events:none;
+
+  animation:
+  twinkle 2s
+  infinite alternate;
+}
+
+@keyframes twinkle{
+
+  from{
+    opacity:.2;
+    transform:scale(.6);
+  }
+
+  to{
+    opacity:1;
+    transform:scale(1.5);
+  }
+
+}
+
+.box{
+  width:100%;
+  max-width:430px;
+
+  padding:38px 30px;
+
+  border-radius:30px;
+
+  background:
+  rgba(
+    255,
+    255,
+    255,
+    .08
+  );
+
+  border:
+  1px solid
+  rgba(
+    255,
+    255,
+    255,
+    .16
+  );
+
+  backdrop-filter:
+  blur(20px);
+
+  box-shadow:
+  0 25px 80px
+  rgba(
+    0,
+    0,
+    0,
+    .5
+  );
+
+  position:relative;
+  z-index:2;
+}
+
+.logo{
+  text-align:center;
+
+  font-size:31px;
+  font-weight:bold;
+
+  letter-spacing:9px;
+
+  text-shadow:
+  0 0 25px
+  #a68cff;
+}
+
+.tagline{
+  text-align:center;
+
+  margin:
+  12px 0 30px;
+
+  color:#c9c3df;
+
+  line-height:1.6;
+}
+
+.tabs{
+  display:flex;
+
+  margin-bottom:25px;
+
+  padding:5px;
+
+  border-radius:18px;
+
+  background:
+  rgba(
+    255,
+    255,
+    255,
+    .06
+  );
+}
+
+.tab{
+  width:50%;
+
+  padding:12px;
+
+  border:none;
+
+  border-radius:14px;
+
+  color:#bdb6d2;
+
+  background:transparent;
+
+  cursor:pointer;
+
+  font-weight:bold;
+}
+
+.tab.active{
+  color:white;
+
+  background:
+  linear-gradient(
+    90deg,
+    #735cff,
+    #d864bd
+  );
+}
+
+.form{
+  display:none;
+}
+
+.form.active{
+  display:block;
+}
+
+label{
+  display:block;
+
+  margin:
+  16px 0 7px;
+
+  color:#d8d2e9;
+
+  font-size:13px;
+}
+
+input{
+  width:100%;
+
+  padding:14px;
+
+  border-radius:14px;
+
+  color:white;
+
+  outline:none;
+
+  background:
+  rgba(
+    255,
+    255,
+    255,
+    .07
+  );
+
+  border:
+  1px solid
+  rgba(
+    255,
+    255,
+    255,
+    .13
+  );
+}
+
+input:focus{
+
+  border-color:
+  #a883ff;
+
+  box-shadow:
+  0 0 15px
+  rgba(
+    170,
+    120,
+    255,
+    .3
+  );
+}
+
+.submit{
+  width:100%;
+
+  margin-top:25px;
+
+  padding:15px;
+
+  border:none;
+
+  border-radius:16px;
+
+  color:white;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  background:
+  linear-gradient(
+    90deg,
+    #705cff,
+    #dc65bd
+  );
+}
+
+.divider{
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  margin:22px 0;
+
+  color:#918aa8;
+
+  font-size:12px;
+}
+
+.divider::before,
+.divider::after{
+
+  content:"";
+
+  flex:1;
+
+  height:1px;
+
+  background:
+  rgba(
+    255,
+    255,
+    255,
+    .12
+  );
+}
+
+.google-button{
+
+  width:100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  gap:12px;
+
+  padding:14px;
+
+  border-radius:16px;
+
+  color:white;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  background:
+  rgba(
+    255,
+    255,
+    255,
+    .08
+  );
+
+  border:
+  1px solid
+  rgba(
+    255,
+    255,
+    255,
+    .2
+  );
+}
+
+.google-g{
+
+  width:27px;
+  height:27px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:50%;
+
+  color:#4285f4;
+
+  background:white;
+
+  font-size:18px;
+
+  font-weight:bold;
+}
+
+.message{
+
+  min-height:22px;
+
+  margin-top:15px;
+
+  text-align:center;
+
+  color:#ffc1e6;
+
+  font-size:13px;
+}
+
+.home{
+
+  display:block;
+
+  margin-top:25px;
+
+  text-align:center;
+
+  color:#aaa2c2;
+
+  text-decoration:none;
+
+  font-size:13px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<div class="logo">
+NYVERA
+</div>
+
+<p class="tagline">
+
+A universe where creators
+turn imagination into worlds.
+
+</p>
+
+<div class="tabs">
+
+<button
+class="tab active"
+onclick="showForm('signup',this)">
+
+CREATE ID
+
+</button>
+
+<button
+class="tab"
+onclick="showForm('login',this)">
+
+LOG IN
+
+</button>
+
+</div>
+
+<form
+id="signup"
+class="form active">
+
+<label>
+Creator username
+</label>
+
+<input
+id="newUsername"
+placeholder="@yourname"
+required>
+
+<label>
+Email
+</label>
+
+<input
+id="newEmail"
+type="email"
+placeholder="you@email.com"
+required>
+
+<label>
+Create password
+</label>
+
+<input
+id="newPassword"
+type="password"
+placeholder="At least 6 characters"
+required>
+
+<button
+class="submit">
+
+CREATE MY NYVERA ID ✦
+
+</button>
+
+<div class="divider">
+<span>OR</span>
+</div>
+
+<button
+type="button"
+class="google-button"
+onclick="googleLogin()">
+
+<span class="google-g">
+G
+</span>
+
+Continue with Google
+
+</button>
+
+</form>
+
+<form
+id="login"
+class="form">
+
+<label>
+Username or email
+</label>
+
+<input
+id="loginUser"
+placeholder="@yourname"
+required>
+
+<label>
+Password
+</label>
+
+<input
+id="loginPassword"
+type="password"
+placeholder="Your password"
+required>
+
+<button
+class="submit">
+
+ENTER NYVERA ✦
+
+</button>
+
+<div class="divider">
+<span>OR</span>
+</div>
+
+<button
+type="button"
+class="google-button"
+onclick="googleLogin()">
+
+<span class="google-g">
+G
+</span>
+
+Continue with Google
+
+</button>
+
+</form>
+
+<div
+id="message"
+class="message">
+
+</div>
+
+<a
+class="home"
+href="world.html">
+
+← Back to Explore
+
+</a>
+
+</div>
+
+<script>
+
+/* Create stars */
+
+for(
+let i=0;
+i<100;
+i++
+){
+
+const star=
+document.createElement(
+"div"
+);
+
+star.className=
+"star";
+
+star.style.left=
+Math.random()*100
++"%";
+
+star.style.top=
+Math.random()*100
++"%";
+
+star.style.animationDelay=
+Math.random()*3
++"s";
+
+document.body.appendChild(
+star
+);
+
+}
+
+/* Change tabs */
+
+function showForm(
+name,
+button
+){
+
+document
+.querySelectorAll(
+".form"
+)
+.forEach(
+
+form =>
+form.classList.remove(
+"active"
+)
+
+);
+
+document
+.getElementById(
+name
+)
+.classList.add(
+"active"
+);
+
+document
+.querySelectorAll(
+".tab"
+)
+.forEach(
+
+tab =>
+tab.classList.remove(
+"active"
+)
+
+);
+
+button.classList.add(
+"active"
+);
+
+document
+.getElementById(
+"message"
+).innerText="";
+
+}
+
+/* Create demo ID */
+
+document
+.getElementById(
+"signup"
+)
+.addEventListener(
+
+"submit",
+
+function(e){
+
+e.preventDefault();
+
+const username=
+
+document
+.getElementById(
+"newUsername"
+)
+.value
+.trim()
+.replace(
+"@",
+""
+);
+
+const email=
+
+document
+.getElementById(
+"newEmail"
+)
+.value
+.trim();
+
+const password=
+
+document
+.getElementById(
+"newPassword"
+)
+.value;
+
+if(
+password.length < 6
+){
+
+document
+.getElementById(
+"message"
+).innerText=
+
+"Use at least 6 characters.";
+
+return;
+
+}
+
+localStorage
+.setItem(
+
+"nyveraUser",
+
+JSON.stringify({
+
+username:
+username,
+
+email:
+email
+
+})
+
+);
+
+document
+.getElementById(
+"message"
+).innerText=
+
+"✨ Your NYVERA ID is ready!";
+
+});
+
+/* Demo login */
+
+document
+.getElementById(
+"login"
+)
+.addEventListener(
+
+"submit",
+
+function(e){
+
+e.preventDefault();
+
+const saved=
+
+localStorage
+.getItem(
+"nyveraUser"
+);
+
+if(!saved){
+
+document
+.getElementById(
+"message"
+).innerText=
+
+"No NYVERA ID found. Create one first.";
+
+return;
+
+}
+
+document
+.getElementById(
+"message"
+).innerText=
+
+"✨ Welcome back to NYVERA!";
+
+});
+
+/* Google button */
+
+function googleLogin(){
+
+document
+.getElementById(
+"message"
+).innerText=
+
+"Google sign-in will be connected soon ✦";
+
+}
+
+</script>
+
+</body>
+</html>
