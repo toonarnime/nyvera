@@ -21,124 +21,58 @@ html{
 body{
   min-height:100vh;
   overflow-x:hidden;
-
-  font-family:
-  Arial,
-  sans-serif;
-
+  font-family:Arial,sans-serif;
   color:white;
 
   background:
-
   radial-gradient(
-  circle at 15% 10%,
-  #4a286f,
-  transparent 35%
+    circle at 15% 10%,
+    #47266d,
+    transparent 35%
   ),
-
   radial-gradient(
-  circle at 85% 35%,
-  #153c68,
-  transparent 40%
+    circle at 85% 30%,
+    #183e70,
+    transparent 40%
   ),
-
   linear-gradient(
-  180deg,
-  #09061a,
-  #080d22,
-  #12091d
+    180deg,
+    #070512,
+    #0b1024,
+    #12091e
   );
 }
 
-/* Animated stars */
+/* Stars */
 
 .star{
-
   position:fixed;
-
   width:3px;
   height:3px;
-
   border-radius:50%;
-
   background:white;
 
   box-shadow:
-  0 0 7px white,
-  0 0 15px #9c8cff;
+  0 0 8px white,
+  0 0 15px #a98cff;
 
   pointer-events:none;
 
   animation:
   twinkle 2s
   infinite alternate;
-
 }
 
 @keyframes twinkle{
 
   from{
-
     opacity:.2;
-
-    transform:
-    scale(.6);
-
+    transform:scale(.6);
   }
 
   to{
-
     opacity:1;
-
-    transform:
-    scale(1.5);
-
-  }
-
-}
-
-/* Floating petals */
-
-.petal{
-
-  position:fixed;
-
-  top:-30px;
-
-  color:#ff9fda;
-
-  font-size:20px;
-
-  pointer-events:none;
-
-  opacity:.7;
-
-  animation:
-  fall linear
-  infinite;
-
-}
-
-@keyframes fall{
-
-  from{
-
-    transform:
-
-    translateY(-50px)
-
-    rotate(0deg);
-
-  }
-
-  to{
-
-    transform:
-
-    translateY(110vh)
-
-    rotate(500deg);
-
+    transform:scale(1.5);
   }
 
 }
@@ -146,661 +80,302 @@ body{
 /* Navigation */
 
 nav{
-
   position:sticky;
-
   top:0;
-
-  z-index:50;
-
-  height:75px;
+  z-index:20;
 
   display:flex;
-
   align-items:center;
+  justify-content:space-between;
 
-  justify-content:
-  space-between;
-
-  padding:
-  0 7%;
+  padding:18px 7%;
 
   background:
-
   rgba(
-  7,
-  5,
-  20,
-  .7
+    5,4,17,.72
   );
 
   backdrop-filter:
   blur(18px);
 
   border-bottom:
-
   1px solid
-
   rgba(
-  255,
-  255,
-  255,
-  .1
+    255,255,255,.1
   );
-
 }
 
 .logo{
-
   color:white;
-
   text-decoration:none;
 
-  font-size:25px;
-
+  font-size:24px;
   font-weight:bold;
 
   letter-spacing:7px;
 
   text-shadow:
-
   0 0 20px
-
   #a68cff;
-
 }
 
-.home{
+.nav-buttons{
+  display:flex;
+  gap:10px;
+}
 
-  color:#eee9ff;
-
+.nav-button{
+  color:white;
   text-decoration:none;
 
-  padding:
-  10px 18px;
+  padding:10px 17px;
+
+  border-radius:25px;
 
   border:
-
   1px solid
-
   rgba(
-  255,
-  255,
-  255,
-  .25
+    255,255,255,.2
   );
-
-  border-radius:30px;
-
-  transition:.3s;
-
-}
-
-.home:hover{
 
   background:
-
   rgba(
-  170,
-  110,
-  255,
-  .2
+    255,255,255,.05
+  );
+}
+
+.join{
+  background:
+  linear-gradient(
+    90deg,
+    #735cff,
+    #dc66bd
   );
 
+  border:none;
 }
 
 /* Hero */
 
 .hero{
-
-  min-height:430px;
+  min-height:520px;
 
   display:flex;
-
   flex-direction:column;
 
   align-items:center;
-
   justify-content:center;
 
   text-align:center;
 
-  padding:
-  80px 20px;
-
+  padding:90px 20px;
 }
 
 .badge{
-
-  padding:
-  9px 18px;
+  padding:9px 18px;
 
   border-radius:30px;
 
-  color:#e5dfff;
+  color:#e8e2ff;
 
   background:
-
   rgba(
-  170,
-  120,
-  255,
-  .15
+    160,110,255,.15
   );
 
   border:
-
   1px solid
-
   rgba(
-  210,
-  180,
-  255,
-  .25
+    220,190,255,.25
   );
-
-  letter-spacing:2px;
 
   font-size:12px;
 
+  letter-spacing:2px;
 }
 
 .hero h1{
-
-  margin-top:20px;
+  margin-top:22px;
 
   font-size:
-
   clamp(
-  42px,
-  10vw,
-  100px
+    43px,
+    10vw,
+    100px
   );
 
   letter-spacing:7px;
 
   background:
-
   linear-gradient(
-
-  90deg,
-
-  #ffffff,
-
-  #aeb8ff,
-
-  #f3a4dd,
-
-  #ffffff
-
+    90deg,
+    white,
+    #aebaff,
+    #f0a2d8,
+    white
   );
 
-  -webkit-background-clip:
-  text;
+  -webkit-background-clip:text;
 
   color:transparent;
-
-  text-shadow:
-
-  0 0 40px
-
-  rgba(
-  170,
-  120,
-  255,
-  .45
-  );
-
 }
 
 .hero p{
-
   max-width:680px;
 
-  margin-top:20px;
+  margin-top:22px;
 
-  color:#d3cee8;
+  color:#d1cce4;
 
   line-height:1.8;
 
-  font-size:
-  17px;
-
+  font-size:17px;
 }
 
-/* Upload button */
-
-.upload{
-
-  margin-top:28px;
-
-  padding:
-  15px 27px;
-
-  border:none;
-
-  border-radius:50px;
-
-  color:white;
-
-  font-weight:bold;
-
-  letter-spacing:1px;
-
-  background:
-
-  linear-gradient(
-
-  90deg,
-
-  #725cff,
-
-  #db65bd
-
-  );
-
-  box-shadow:
-
-  0 0 30px
-
-  rgba(
-  190,
-  90,
-  255,
-  .55
-  );
-
-  cursor:pointer;
-
-  transition:.3s;
-
-}
-
-.upload:hover{
-
-  transform:
-
-  translateY(-4px)
-
-  scale(1.04);
-
-  box-shadow:
-
-  0 0 55px
-
-  #c986ff;
-
-}
-
-/* Categories */
-
-.categories{
-
-  width:
-  min(
-  1100px,
-  90%
-  );
-
-  margin:
-  0 auto 35px;
-
+.hero-buttons{
   display:flex;
-
-  gap:12px;
-
-  overflow-x:auto;
-
-  padding:
-  8px 0;
-
-}
-
-.category{
-
-  flex:none;
-
-  padding:
-  11px 18px;
-
-  border-radius:30px;
-
-  color:#dcd7ed;
-
-  background:
-
-  rgba(
-  255,
-  255,
-  255,
-  .07
-  );
-
-  border:
-
-  1px solid
-
-  rgba(
-  255,
-  255,
-  255,
-  .1
-  );
-
-  cursor:pointer;
-
-}
-
-.category:first-child{
-
-  background:
-
-  rgba(
-  150,
-  100,
-  255,
-  .3
-  );
-
-}
-
-/* Feed */
-
-.feed{
-
-  width:
-
-  min(
-  1100px,
-  90%
-  );
-
-  margin:
-
-  auto;
-
-  padding-bottom:
-
-  100px;
-
-  display:grid;
-
-  grid-template-columns:
-
-  repeat(
-
-  auto-fit,
-
-  minmax(
-  280px,
-  1fr
-  )
-
-  );
-
-  gap:25px;
-
-}
-
-/* Post */
-
-.post{
-
-  overflow:hidden;
-
-  border-radius:24px;
-
-  background:
-
-  rgba(
-  255,
-  255,
-  255,
-  .08
-  );
-
-  border:
-
-  1px solid
-
-  rgba(
-  255,
-  255,
-  255,
-  .13
-  );
-
-  backdrop-filter:
-  blur(12px);
-
-  transition:.4s;
-
-}
-
-.post:hover{
-
-  transform:
-
-  translateY(-10px);
-
-  border-color:
-
-  rgba(
-  220,
-  150,
-  255,
-  .6
-  );
-
-  box-shadow:
-
-  0 20px 60px
-
-  rgba(
-  110,
-  60,
-  255,
-  .25
-  );
-
-}
-
-.art{
-
-  height:210px;
-
-  display:flex;
-
-  align-items:center;
+  flex-wrap:wrap;
 
   justify-content:center;
 
-  font-size:75px;
+  gap:14px;
 
-  background:
-
-  linear-gradient(
-
-  135deg,
-
-  #382266,
-
-  #173c6d,
-
-  #9d4d87
-
-  );
-
-  position:relative;
-
-  overflow:hidden;
-
+  margin-top:30px;
 }
 
-.art::after{
+.main-button{
+  padding:15px 25px;
 
-  content:"";
+  border-radius:40px;
 
-  position:absolute;
+  color:white;
 
-  width:300px;
+  text-decoration:none;
 
-  height:70px;
+  font-weight:bold;
 
   background:
-
-  rgba(
-  255,
-  255,
-  255,
-  .12
+  linear-gradient(
+    90deg,
+    #705cff,
+    #dc65be
   );
 
+  box-shadow:
+  0 0 30px
+  rgba(
+    185,90,255,.5
+  );
+
+  transition:.3s;
+}
+
+.main-button:hover{
   transform:
-
-  rotate(-30deg);
-
-  animation:
-
-  shine 5s
-
-  infinite;
-
+  translateY(-4px)
+  scale(1.04);
 }
 
-@keyframes shine{
-
-  from{
-
-    left:-350px;
-
-  }
-
-  to{
-
-    left:350px;
-
-  }
-
-}
-
-.post-info{
-
-  padding:22px;
-
-}
-
-.creator{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:10px;
-
-  color:#cfc9e5;
-
-  font-size:13px;
-
-}
-
-.avatar{
-
-  width:35px;
-
-  height:35px;
-
-  display:grid;
-
-  place-items:center;
-
-  border-radius:50%;
-
+.secondary{
   background:
-
-  linear-gradient(
-
-  135deg,
-
-  #6f64ff,
-
-  #ef76c7
-
-  );
-
-}
-
-.post h2{
-
-  margin-top:17px;
-
-  font-size:22px;
-
-}
-
-.post p{
-
-  margin-top:9px;
-
-  color:#aaa5c0;
-
-  line-height:1.6;
-
-}
-
-.actions{
-
-  display:flex;
-
-  gap:12px;
-
-  margin-top:20px;
-
-}
-
-.action{
-
-  padding:
-  9px 13px;
-
-  border-radius:20px;
-
-  color:#d8d3e9;
-
-  background:
-
   rgba(
-  255,
-  255,
-  255,
-  .07
+    255,255,255,.07
   );
 
-  border:none;
+  border:
+  1px solid
+  rgba(
+    255,255,255,.2
+  );
 
-  cursor:pointer;
-
+  box-shadow:none;
 }
 
-footer{
+/* Empty creation area */
+
+.creation-area{
+  width:
+  min(
+    900px,
+    90%
+  );
+
+  margin:
+  0 auto 110px;
 
   padding:
-  45px 20px;
+  65px 25px;
 
   text-align:center;
 
-  color:#8f899f;
+  border-radius:30px;
+
+  background:
+  rgba(
+    255,255,255,.06
+  );
+
+  border:
+  1px solid
+  rgba(
+    255,255,255,.13
+  );
+
+  backdrop-filter:
+  blur(15px);
+}
+
+.creation-icon{
+  font-size:70px;
+}
+
+.creation-area h2{
+  margin-top:18px;
+  font-size:30px;
+}
+
+.creation-area p{
+  max-width:500px;
+
+  margin:
+  15px auto 28px;
+
+  color:#bcb6d1;
+
+  line-height:1.7;
+}
+
+/* Footer */
+
+footer{
+  padding:45px 20px;
+
+  text-align:center;
+
+  color:#8e879f;
 
   border-top:
-
   1px solid
-
   rgba(
-  255,
-  255,
-  255,
-  .08
+    255,255,255,.08
   );
+}
+
+@media(max-width:600px){
+
+  nav{
+    padding:16px 5%;
+  }
+
+  .logo{
+    font-size:18px;
+    letter-spacing:4px;
+  }
+
+  .nav-button{
+    padding:9px 11px;
+    font-size:12px;
+  }
 
 }
 
@@ -819,13 +394,26 @@ NYVERA
 
 </a>
 
-<a
-class="home"
-href="index.html">
+<div
+class="nav-buttons">
 
-← HOME
+<a
+class="nav-button"
+href="login.html">
+
+LOG IN
 
 </a>
+
+<a
+class="nav-button join"
+href="login.html">
+
+JOIN ✦
+
+</a>
+
+</div>
 
 </nav>
 
@@ -835,279 +423,90 @@ class="hero">
 <div
 class="badge">
 
-✦ A CREATIVE UNIVERSE
+✦ THE CREATOR UNIVERSE
 
 </div>
 
 <h1>
 
 EXPLORE
-CREATIONS
+NYVERA
 
 </h1>
 
 <p>
 
-Discover worlds built
-through imagination —
-from Blender creations
-and animations
-to games,
-art,
-and experimental ideas.
+A universe where creators
+turn imagination into worlds.
+
+Discover Blender creations,
+animations, games,
+digital art,
+and ideas created
+by people from everywhere.
 
 </p>
 
-<button
-class="upload"
-onclick="uploadMessage()">
+<div
+class="hero-buttons">
+
+<a
+class="main-button"
+href="login.html">
 
 ＋ SHARE YOUR CREATION
 
-</button>
+</a>
+
+<a
+class="main-button secondary"
+href="index.html">
+
+← RETURN HOME
+
+</a>
+
+</div>
 
 </section>
 
-<div
-class="categories">
+<section
+class="creation-area">
 
 <div
-class="category">
+class="creation-icon">
 
-✦ All
-
-</div>
-
-<div
-class="category">
-
-🧊 Blender
-
-</div>
-
-<div
-class="category">
-
-🎬 Animation
-
-</div>
-
-<div
-class="category">
-
-🎮 Games
-
-</div>
-
-<div
-class="category">
-
-🎨 Art
-
-</div>
-
-<div
-class="category">
-
-💻 Web
-
-</div>
-
-</div>
-
-<main
-class="feed">
-
-<article
-class="post">
-
-<div
-class="art">
-
-🐉
-
-</div>
-
-<div
-class="post-info">
-
-<div
-class="creator">
-
-<div
-class="avatar">
-
-Z
-
-</div>
-
-@zephyrae
+🌌
 
 </div>
 
 <h2>
 
-The Last Sky Dragon
+The universe is waiting.
 
 </h2>
 
 <p>
 
-A fantasy 3D world
-created in Blender.
+No creations have been
+shared yet.
+
+Join NYVERA and become
+one of the first creators
+to bring a new world
+to life.
 
 </p>
 
-<div
-class="actions">
+<a
+class="main-button"
+href="login.html">
 
-<button
-class="action">
+JOIN NYVERA ✦
 
-❤️ 24
+</a>
 
-</button>
-
-<button
-class="action">
-
-💬 6
-
-</button>
-
-</div>
-
-</div>
-
-</article>
-
-<article
-class="post">
-
-<div
-class="art">
-
-🌸
-
-</div>
-
-<div
-class="post-info">
-
-<div
-class="creator">
-
-<div
-class="avatar">
-
-A
-
-</div>
-
-@anime_artist
-
-</div>
-
-<h2>
-
-Moonlit Sakura
-
-</h2>
-
-<p>
-
-A dreamy anime-style
-digital artwork.
-
-</p>
-
-<div
-class="actions">
-
-<button
-class="action">
-
-❤️ 47
-
-</button>
-
-<button
-class="action">
-
-💬 11
-
-</button>
-
-</div>
-
-</div>
-
-</article>
-
-<article
-class="post">
-
-<div
-class="art">
-
-🏰
-
-</div>
-
-<div
-class="post-info">
-
-<div
-class="creator">
-
-<div
-class="avatar">
-
-K
-
-</div>
-
-@kairo
-
-</div>
-
-<h2>
-
-Forgotten Kingdom
-
-</h2>
-
-<p>
-
-A cinematic fantasy
-environment experiment.
-
-</p>
-
-<div
-class="actions">
-
-<button
-class="action">
-
-❤️ 31
-
-</button>
-
-<button
-class="action">
-
-💬 8
-
-</button>
-
-</div>
-
-</div>
-
-</article>
-
-</main>
+</section>
 
 <footer>
 
@@ -1115,29 +514,20 @@ class="action">
 
 <br><br>
 
-A place where
-creators share
-the worlds
-they imagine.
+A universe where creators
+turn imagination into worlds.
 
 </footer>
 
 <script>
 
-/* Stars */
-
 for(
-
 let i=0;
-
-i<110;
-
+i<120;
 i++
-
 ){
 
 const star=
-
 document.createElement(
 "div"
 );
@@ -1146,82 +536,20 @@ star.className=
 "star";
 
 star.style.left=
-
 Math.random()*100
 +"%";
 
 star.style.top=
-
 Math.random()*100
 +"%";
 
 star.style.animationDelay=
-
 Math.random()*3
 +"s";
 
 document.body
 .appendChild(
 star
-);
-
-}
-
-/* Petals */
-
-for(
-
-let i=0;
-
-i<15;
-
-i++
-
-){
-
-const petal=
-
-document.createElement(
-"div"
-);
-
-petal.className=
-"petal";
-
-petal.innerHTML=
-"🌸";
-
-petal.style.left=
-
-Math.random()*100
-+"%";
-
-petal.style.animationDuration=
-
-6+
-Math.random()*8
-+"s";
-
-petal.style.animationDelay=
-
-Math.random()*8
-+"s";
-
-document.body
-.appendChild(
-petal
-);
-
-}
-
-/* Upload button */
-
-function uploadMessage(){
-
-alert(
-
-"Creator uploads are coming soon! ✦"
-
 );
 
 }
